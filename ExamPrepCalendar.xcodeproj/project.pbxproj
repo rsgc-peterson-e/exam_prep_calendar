@@ -25,6 +25,9 @@
 /* Begin PBXFileReference section */
 		810DC5241ECE12AE003B71EE /* ExamPrepCalendar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ExamPrepCalendar; sourceTree = BUILT_PRODUCTS_DIR; };
 		810DC5271ECE12AE003B71EE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		810DC52F1ECE131E003B71EE /* Exam Prep - 1 - Sounds Fishy - Algorithm.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exam Prep - 1 - Sounds Fishy - Algorithm.docx"; sourceTree = "<group>"; };
+		810DC5301ECE131E003B71EE /* Exam Prep - 1 - Sounds Fishy - Test Plan.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exam Prep - 1 - Sounds Fishy - Test Plan.docx"; sourceTree = "<group>"; };
+		810DC5311ECE1335003B71EE /* Exam Prep - 1 - Calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Exam Prep - 1 - Calendar.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 		810DC51B1ECE12AE003B71EE = {
 			isa = PBXGroup;
 			children = (
+				810DC52E1ECE12B5003B71EE /* Documents */,
 				810DC5261ECE12AE003B71EE /* ExamPrepCalendar */,
 				810DC5251ECE12AE003B71EE /* Products */,
 			);
@@ -60,6 +64,16 @@
 				810DC5271ECE12AE003B71EE /* main.swift */,
 			);
 			path = ExamPrepCalendar;
+			sourceTree = "<group>";
+		};
+		810DC52E1ECE12B5003B71EE /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				810DC52F1ECE131E003B71EE /* Exam Prep - 1 - Sounds Fishy - Algorithm.docx */,
+				810DC5301ECE131E003B71EE /* Exam Prep - 1 - Sounds Fishy - Test Plan.docx */,
+				810DC5311ECE1335003B71EE /* Exam Prep - 1 - Calendar.pdf */,
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
