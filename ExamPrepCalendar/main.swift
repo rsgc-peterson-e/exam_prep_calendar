@@ -21,11 +21,29 @@ import Foundation
  */
 var inputToProcess : String = ""
 
+struct BoundPair { // pairs the upper and lower bounds for a given day input
+    var upper : Int?
+    var lower : Int
+}
+
+struct InputStruct {
+    var bounds : BoundPair
+    var prompt : String
+    var input : Int?
+}
+
+var inputData = [InputStruct]()
+// add structs containing all the data needed for each prompt and input collection
+inputData.append(InputStruct(bounds: BoundPair(upper : 7, lower : 1), prompt: "Enter Day: ", input: nil))
+inputData.append(InputStruct(bounds: BoundPair(upper : 31, lower : 28), prompt: "Enter the number of days in the month: ", input: nil))
+inputData.append(InputStruct(bounds: BoundPair(upper : inputData[inputData.count - 1].input, lower : 1), prompt: "Enter the Special Day: ", input: nil))
+
+var i = 0
 // Loop until valid input is received
-while inputToProcess == "" {
+while inputData[inputData.count - 1].input == nil {
     
     // Show the prompt
-    print("Ask the question here? ", terminator: "")
+    print(inputData[i].prompt, terminator: "\n")
     
     // Get the user's input
     var input : String?
@@ -33,14 +51,15 @@ while inputToProcess == "" {
     
     // Use optional binding to see if the string can be unwrapped (to see if it is not nil)
     if let notNilInput = input {
-        
-        // You probably need to add additional checks to be sure the
-        // input received is valid
-        // Add checks as needed...
-        
-        // Save the input given, as we are certain it's what we are looking for now
-        inputToProcess = notNilInput
-        
+        if let inputAsInt = Int(notNilInput) {
+            if inputAsInt >= inputData[i].bounds.lower && inputAsInt <= inputData[i].bounds.upper! {
+                inputData[i].input = inputAsInt
+                if (i == 1) {
+                    inputData[i + 1].bounds.upper = inputData[i].input
+                }
+                i += 1
+            }
+        }
     }
     
 }
@@ -56,8 +75,60 @@ while inputToProcess == "" {
  */
 
 // Add 'process' code below....
-print("replace with process logic")
 
+var output : String = "Sun Mon Tue Wed Thu Fri Sat\n"
+
+// get number of spaces needed before printing can start on the second line of the calendar
+func getSpace(weekDay : Int) -> Int {
+    switch weekDay {
+    case 1:
+        return 0
+    case 2:
+        return 4
+    case 3:
+        return 8
+    case 4:
+        return 12
+    case 5:
+        return 16
+    case 6:
+        return 20
+    case 7:
+        return 24
+    default:
+        return 1
+    }
+}
+// add spaces to ensure start at the correct position
+var spaceNum = getSpace(weekDay: inputData[0].input!)
+func addSpaces(_ n : Int) {
+    if (n != 0) {
+        for i in 1...n {
+            output.append(" ")
+        }
+    }
+}
+//output.append("\n")
+addSpaces(spaceNum)
+
+for i in 1...inputData[1].input! {
+    if (i == 1) {
+        addSpaces(2)
+    } else if (i == 8) {
+        output.append("\n")
+        addSpaces(2)
+    } else if (i < 10) {
+        addSpaces(3)
+    } else {
+        addSpaces(2)
+    }
+    output.append("\(i)")
+}
+output.append("\n")
+
+//for i in 1...inputData[1].input! {
+//    if ()
+//}
 
 /*
  
@@ -70,4 +141,4 @@ print("replace with process logic")
  */
 
 // Add 'output' code below... replace what is here as needed.
-print("The input given was: \(inputToProcess)")
+print(output, terminator: "")
