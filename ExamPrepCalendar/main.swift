@@ -111,12 +111,43 @@ func addSpaces(_ n : Int) {
 //output.append("\n")
 addSpaces(spaceNum)
 
+//for i in 1...inputData[1].input! {
+//    if (i == 1) {
+//        addSpaces(2)
+//    } else if (i == 8) {
+//        output.append("\n")
+//        addSpaces(2)
+//    } else if (i < 10) {
+//        addSpaces(3)
+//    } else {
+//        addSpaces(2)
+//    }
+//    output.append("\(i)")
+//}
+//output.append("\n")
+
+var newLineVals : [Int : Int] = [
+    1 : 8,
+    2 : 7,
+    3 : 6,
+    4 : 5,
+    5 : 4,
+    6 : 3,
+    7 : 2,
+    8 : 1,
+]
+
 for i in 1...inputData[1].input! {
     if (i == 1) {
         addSpaces(2)
-    } else if (i == 8) {
+    } else if (i == newLineVals[inputData[0].input!] || i == (7 + newLineVals[inputData[0].input!]!) || i == (14 + newLineVals[inputData[0].input!]!) || i == (21 + newLineVals[inputData[0].input!]!)) {
         output.append("\n")
-        addSpaces(2)
+        //addSpaces(2)
+        if (i < 10) {
+            addSpaces(2)
+        } else {
+            addSpaces(1)
+        }
     } else if (i < 10) {
         addSpaces(3)
     } else {
@@ -126,9 +157,6 @@ for i in 1...inputData[1].input! {
 }
 output.append("\n")
 
-//for i in 1...inputData[1].input! {
-//    if ()
-//}
 
 /*
  
