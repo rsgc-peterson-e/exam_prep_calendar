@@ -139,7 +139,11 @@ var newLineVals : [Int : Int] = [
 
 for i in 1...inputData[1].input! {
     if (i == 1) {
-        addSpaces(2)
+        if (i == inputData[2].input!) {
+            addSpaces(1)
+        } else {
+            addSpaces(2)
+        }
     } else if (i == newLineVals[inputData[0].input!] || i == (7 + newLineVals[inputData[0].input!]!) || i == (14 + newLineVals[inputData[0].input!]!) || i == (21 + newLineVals[inputData[0].input!]!) || i == (28 + newLineVals[inputData[0].input!]!)) {
         output.append("\n")
         //addSpaces(2)
