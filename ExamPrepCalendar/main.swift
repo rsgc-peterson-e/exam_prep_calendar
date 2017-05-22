@@ -140,20 +140,38 @@ var newLineVals : [Int : Int] = [
 for i in 1...inputData[1].input! {
     if (i == 1) {
         addSpaces(2)
-    } else if (i == newLineVals[inputData[0].input!] || i == (7 + newLineVals[inputData[0].input!]!) || i == (14 + newLineVals[inputData[0].input!]!) || i == (21 + newLineVals[inputData[0].input!]!)) {
+    } else if (i == newLineVals[inputData[0].input!] || i == (7 + newLineVals[inputData[0].input!]!) || i == (14 + newLineVals[inputData[0].input!]!) || i == (21 + newLineVals[inputData[0].input!]!) || i == (28 + newLineVals[inputData[0].input!]!)) {
         output.append("\n")
         //addSpaces(2)
         if (i < 10) {
-            addSpaces(2)
+            if i == inputData[2].input! {
+                addSpaces(1)
+            } else {
+                addSpaces(2)
+            }
         } else {
-            addSpaces(1)
+            if i != inputData[2].input! {
+                addSpaces(1)
+            }
         }
     } else if (i < 10) {
-        addSpaces(3)
+        if i == inputData[2].input! {
+            addSpaces(2)
+        } else {
+            addSpaces(3)
+        }
     } else {
-        addSpaces(2)
+        if i == inputData[2].input! {
+            addSpaces(1)
+        } else {
+            addSpaces(2)
+        }
     }
-    output.append("\(i)")
+    if i == inputData[2].input! {
+        output.append("*\(i)")
+    } else {
+        output.append("\(i)")
+    }
 }
 output.append("\n")
 
